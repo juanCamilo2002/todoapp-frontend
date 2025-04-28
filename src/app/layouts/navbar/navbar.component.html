@@ -1,0 +1,17 @@
+
+<mat-toolbar color="primary">
+    <span class="app-name">Mi App</span>
+    <span class="spacer"></span>
+
+    <div class="user-section" [matMenuTriggerFor]="userMenu">
+      <img src="https://i.pravatar.cc/40" alt="Avatar" class="avatar">
+      <span class="username">Juan</span>
+    </div>
+
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item>Mi perfil</button>
+      <button mat-menu-item>Ajustes</button>
+      <button mat-menu-item (click)="logout()">Cerrar sesión</button>
+    </mat-menu>
+  </mat-toolbar>
+  

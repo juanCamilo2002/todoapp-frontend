@@ -1,0 +1,23 @@
+.login-container{
+    max-width: 400px;
+    margin: auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.full-width{
+    width: 100%;
+}
+
+
+.actions {
+    margin-top: 1rem;
+}
+
+.links {
+    margin-top: 1rem;
+    text-align: center;
+}
+

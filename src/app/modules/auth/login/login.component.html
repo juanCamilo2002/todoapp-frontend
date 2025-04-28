@@ -1,0 +1,38 @@
+<div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nombre de usuario</mat-label>
+            <input matInput placeholder="usuario" formControlName="username" type="text">
+            @if(loginForm.get('username')?.hasError('required')){
+                <mat-error>El nombre usuario es requerido</mat-error>
+            }
+        
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Contraseña</mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+                <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            @if(loginForm.get('password')?.hasError('required')){
+                <mat-error>La contraseña es requerida</mat-error>
+            }
+            @if(loginForm.get('password')?.hasError('minlength')){
+                <mat-error>Minimo 6 caracteres</mat-error>
+            }
+        </mat-form-field>
+        <div class="actions">
+            <button mat-raised-button color="primary" type="submit">Ingresar</button>
+        </div>
+
+        <div class="links">
+            <a routerLink="/auth/forgot-password">¿Olvidaste tu contraseña?</a>
+            <span> | </span>
+            <a routerLink="/auth/register">Crear cuenta</a>
+        </div>
+    </form>
+    @if (errorMessage){
+        <mat-error class="error-message">{{ errorMessage }}</mat-error>
+    }
+</div>
