@@ -1,0 +1,11 @@
+mat-nav-list {
+    width: 250px;
+    height: 100%;
+    background-color: #f4f4f4;
+    padding-top: 20px;
+  }
+  
+  a.active {
+    background-color: #e0e0e0;
+  }
+  

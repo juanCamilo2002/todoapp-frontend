@@ -1,0 +1,41 @@
+<div class="auth-container">
+    <h2>Crear cuenta</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nombre de usuario</mat-label>
+            <input matInput formControlName="username">
+            @if(registerForm.get('username')?.hasError('required')){
+                <mat-error>Nombre de usuario requerido </mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+            @if(registerForm.get('email')?.hasError('required')){
+                <mat-error>Email requerido </mat-error>
+            }
+            @if (registerForm.get('email')?.hasError('email')) {
+                <mat-error>Email inválido</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Contraseña</mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="buytton">
+                <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            @if(registerForm.get('password')?.hasError('required')){
+                <mat-error>Contraseña requerido </mat-error>
+            }
+            @if (registerForm.get('password')?.hasError('minlength')) {
+                <mat-error>La contraseña debe tener al menos 6 caracteres</mat-error>
+            }
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Registrase</button>
+
+        <div class="links">
+            <a routerLink="/auth/login">¿Ya tienes cuenta? Inicia sesión</a>
+        </div>
+    </form>
+</div>

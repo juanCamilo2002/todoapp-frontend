@@ -1,0 +1,15 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+.spacer{
+    flex:1;
+}
+
+.user-section{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
